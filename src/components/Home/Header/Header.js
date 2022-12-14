@@ -38,26 +38,26 @@ const Header = ({ type }) => {
   });
 
   const navigate = useNavigate();
-  const [state, setState] = useContext(UserContext)
+  const [state,setState]= useContext(UserContext)
   const [matchedAreas, setMatchedAreas] = useState([])
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [searchText, setSearchText] = useState('')
   const [selectedAreaName, setSelectedAreaName] = useState('')
 
   const handleAreaSearch = (srcText) => {
-    setSearchText(srcText)
-    if (srcText) {
-      const matchedAreas = allParkingAreas.filter(area => area.name.toLowerCase().includes(srcText.toLowerCase()))
-      if (matchedAreas.length) {
-        setMatchedAreas(matchedAreas)
-        setIsModalOpen(true)
-      } else {
+      setSearchText(srcText)
+      if(srcText){
+        const matchedAreas = allParkingAreas.filter(area => area.name.toLowerCase().includes(srcText.toLowerCase()))
+        if(matchedAreas.length){
+          setMatchedAreas(matchedAreas)
+          setIsModalOpen(true)
+        }else{
+          setMatchedAreas([])
+        }
+      }else{
         setMatchedAreas([])
+        setIsModalOpen(false)
       }
-    } else {
-      setMatchedAreas([])
-      setIsModalOpen(false)
-    }
   }
 
 
@@ -78,23 +78,26 @@ const Header = ({ type }) => {
   };
 
   return (
+
+   
    
     <div className="header pb-20">
        <div className={`search-result-container ${isModalOpen && 'modal-open'}`}>
-            <div onClick={() => {
-              setDestination(searchText)
-              setIsModalOpen(false)
-            }} className="modal-content">
-              {
-                matchedAreas.length > 0 ? matchedAreas.map(area => 
-                <div onClick={() => setSelectedAreaName(area.name)} className="single-searched-area">
-                  <img src={area.photos[0]} alt="" />
-                  <p>{area.name}</p>
-                </div>) :
-                <h3 className="mt-12 text-2xl text-center text-red-600 font-semibold">No Parking Area Found!</h3>
-              }
-            </div>
-        </div>
+    <div onClick={() => {
+      setDestination(searchText)
+      setIsModalOpen(false)
+    }} className="modal-content">
+      {
+        matchedAreas.length > 0 ? matchedAreas.map(area => 
+        <div onClick={() => setSelectedAreaName(area.name)} className="single-searched-area">
+          <img src={area.photos[0]} alt="" />
+          <p>{area.name}</p>
+        </div>) :
+        <h3 className="mt-12 text-2xl text-center text-red-600 font-semibold">No Parking Area Found!</h3>
+      }
+    </div>
+</div>
+      
       <div className={type === "list" ? "headerContainer listMode" : "headerContainer"} >
         <div className="headerList pb-5 pt-5">
           <div className="headerListItem active">
@@ -139,28 +142,32 @@ const Header = ({ type }) => {
                     type="text"
                     placeholder="Where are you parking?"
                     className="headerSearchInput"
-                    onChange={(e) => setDestination(e.target.value)}
+                    onChange={e => {
+                      handleAreaSearch(e.target.value)
+                      setSelectedAreaName(e.target.value)
+                    }}
+                    value={selectedAreaName}
                   />
                 </div>
                 <div className="headerSearchItem justify-self-center">
                   <FontAwesomeIcon icon={faCalendarDays} className="headerIcon h-5 mr-1" />
                   <span
-                    onClick={() => setOpenDate(!openDate)}
+                    onClick={() => isModalOpen || setOpenDate(!openDate)}
                     className="headerSearchText"
                   >{`${format(dates[0].startDate, "MM/dd/yyyy")} to ${format(
                     dates[0].endDate,
                     "MM/dd/yyyy"
                   )}`}</span>
                   {openDate && (
-                    <DateRange
-                      editableDateInputs={true}
-                      onChange={(item) => setDates([item.selection])}
-                      moveRangeOnFirstSelection={false}
-                      ranges={dates}
-                      className="date rounded "
-                      minDate={new Date()}
-                    />
-                  )}
+                  <DateRange
+                    editableDateInputs={true}
+                    onChange={(item) => setDates([item.selection])}
+                    moveRangeOnFirstSelection={false}
+                    ranges={dates}
+                    className="date"
+                    minDate={new Date()}
+                  />
+                )}
                 </div>
                 <div className="headerSearchItem justify-self-center">
                   <FontAwesomeIcon icon={faParking} className="headerIcon h-5 mr-1" />
