@@ -1,0 +1,14 @@
+.dashboard-links li {
+    border-bottom: 3px solid rgb(230, 230, 230);
+    font-weight: 600;
+    padding: 12px 10px;
+}
+
+.dashboard-links li:hover {
+    color: #FE235B;
+}
+
+.dashboard-links li a:active {
+    color: #FE235B;
+
+}

@@ -1,0 +1,13 @@
+#contact {
+    background: url(../../assets/images/home-boxed-bg.jpg);
+    background-size: cover;
+    background-position: center;
+    background-position: cover;
+    background-repeat: no-repeat;
+
+}
+
+input:focus {
+    outline: none;
+    outline-offset: none;
+}

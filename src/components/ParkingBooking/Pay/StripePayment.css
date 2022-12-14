@@ -1,0 +1,48 @@
+.payment-container {
+    width: 80%;
+    margin: auto;
+    margin-top: 80px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.StripeElement {
+    width: 100%;
+}
+
+.pay-now-btn {
+    width: 100%;
+    margin-top: 0;
+}
+
+.pay-btn-disabled {
+    opacity: 0.9 !important;
+    cursor: default !important;
+}
+
+.payment-loader-button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.payment-confirm-text {
+    margin: 0;
+    font-size: 16px;
+}
+
+.payment-transactionId {
+    color: goldenrod;
+}
+
+.gray-color {
+    color: #C4C4C4;
+}
+
+.dollar-color {
+    color: #06DBAC;
+}
+
+
+@media only screen and (max-width: 600px) {}
