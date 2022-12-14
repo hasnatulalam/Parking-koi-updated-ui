@@ -134,6 +134,19 @@
   cursor: not-allowed;
 }
 
+.search-result-container {
+  display: none;
+  position: absolute;
+  z-index: 10;
+  left: 27.5%;
+  top: 108%;
+  width: 1024px;
+  height: 200px;
+  overflow: auto;
+  background-color: #242933;
+  border-radius: 5px;
+}
+
 
 .modal-open {
   display: block;

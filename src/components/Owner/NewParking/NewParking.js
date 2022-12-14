@@ -51,6 +51,7 @@ const NewParking = () => {
       const newhotel = {
         ...info,
         slots,
+      
         photos: list,
       }
 

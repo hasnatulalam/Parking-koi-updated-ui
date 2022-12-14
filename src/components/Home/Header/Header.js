@@ -122,6 +122,7 @@ const Header = ({ type }) => {
           </div>
         </div>
         {type !== "list" && (
+          <>
           <div className="w-full">
             <div className="max-w-4xl mx-auto text-center">
               <h1 className="headerTitle text-5xl capitalize text-white font-bold leading-[70px]">
@@ -210,6 +211,7 @@ const Header = ({ type }) => {
 
             </div>
           </div>
+          </>
         )}
       </div>
     </div>
