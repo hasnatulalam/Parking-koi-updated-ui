@@ -80,31 +80,31 @@ export const userInputs = [
       id: "type",
       label: "Type",
       type: "text",
-      placeholder: "hotel",
+      placeholder: "parkingSpace",
     },
     {
       id: "city",
       label: "City",
       type: "text",
-      placeholder: "New York",
+      placeholder: "CTG",
     },
     {
       id: "address",
       label: "Address",
       type: "text",
-      placeholder: "elton st, 216",
+      placeholder: "CDA Residential Area",
     },
     {
       id: "distance",
       label: "Distance from City Center",
       type: "text",
-      placeholder: "500",
+      placeholder: "1000",
     },
     {
       id: "title",
       label: "Title",
       type: "text",
-      placeholder: "The best Hotel",
+      placeholder: "The best Parking Space in City",
     },
     {
       id: "desc",
@@ -116,7 +116,7 @@ export const userInputs = [
       id: "cheapestPrice",
       label: "Price",
       type: "text",
-      placeholder: "100",
+      placeholder: "75",
     },
   ];
   
@@ -125,24 +125,19 @@ export const userInputs = [
       id: "title",
       label: "Title",
       type: "text",
-      placeholder: "2 bed room",
+      placeholder: "The best Parking Space in City",
     },
     {
       id: "desc",
       label: "Description",
       type: "text",
-      placeholder: "King size bed, 1 bathroom",
+      placeholder: "Available All security",
     },
     {
       id: "price",
       label: "Price",
       type: "number",
-      placeholder: "100",
+      placeholder: "75",
     },
-    {
-      id: "maxPeople",
-      label: "Max People",
-      type: "number",
-      placeholder: "2",
-    },
+
   ];

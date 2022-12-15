@@ -11,6 +11,7 @@ import loginImg from "../../assets/images/login.jpg";
 
 const Login = () => {
   const navigate = useNavigate();
+ 
 
 
   const [input, setInput] = useState({
@@ -98,6 +99,7 @@ const Login = () => {
             </Link>
 
             <input type="submit" className='btn btn-primary mb-3 mt-2' value="Login" />
+         
 
           </form >
           <div className="text-xs text-center">
